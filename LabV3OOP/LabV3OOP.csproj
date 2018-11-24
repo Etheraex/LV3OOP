@@ -88,5 +88,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LabV3OOPData\LabV3OOPData.csproj">
+      <Project>{55688800-b777-4dc6-b5fe-76818958ae07}</Project>
+      <Name>LabV3OOPData</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

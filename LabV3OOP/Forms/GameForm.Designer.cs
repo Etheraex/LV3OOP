@@ -44,13 +44,14 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(766, 628);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // Form1
+            // GameForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(766, 628);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "Form1";
+            this.Name = "GameForm";
             this.Text = "Form1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.ResumeLayout(false);
