@@ -1,0 +1,11 @@
+C:\Users\Mladen\source\repos\LabV3OOP\LabV3OOP\bin\Debug\LabV3OOP.exe.config
+C:\Users\Mladen\source\repos\LabV3OOP\LabV3OOP\bin\Debug\LabV3OOP.exe
+C:\Users\Mladen\source\repos\LabV3OOP\LabV3OOP\bin\Debug\LabV3OOP.pdb
+C:\Users\Mladen\source\repos\LabV3OOP\LabV3OOP\obj\Debug\LabV3OOP.csprojAssemblyReference.cache
+C:\Users\Mladen\source\repos\LabV3OOP\LabV3OOP\obj\Debug\LabV3OOP.Properties.Resources.resources
+C:\Users\Mladen\source\repos\LabV3OOP\LabV3OOP\obj\Debug\LabV3OOP.csproj.GenerateResource.cache
+C:\Users\Mladen\source\repos\LabV3OOP\LabV3OOP\obj\Debug\LabV3OOP.csproj.CoreCompileInputs.cache
+C:\Users\Mladen\source\repos\LabV3OOP\LabV3OOP\obj\Debug\LabV3OOP.exe
+C:\Users\Mladen\source\repos\LabV3OOP\LabV3OOP\obj\Debug\LabV3OOP.pdb
+C:\Users\Mladen\source\repos\LabV3OOP\LabV3OOP\obj\Debug\LabV3OOP.StartupForm.resources
+C:\Users\Mladen\source\repos\LabV3OOP\LabV3OOP\obj\Debug\LabV3OOP.GameForm.resources
