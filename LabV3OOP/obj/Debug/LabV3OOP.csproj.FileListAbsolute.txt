@@ -12,3 +12,4 @@ C:\Users\Mladen\source\repos\LabV3OOP\LabV3OOP\obj\Debug\LabV3OOP.GameForm.resou
 C:\Users\Mladen\source\repos\LabV3OOP\LabV3OOP\bin\Debug\LabV3OOPData.dll
 C:\Users\Mladen\source\repos\LabV3OOP\LabV3OOP\bin\Debug\LabV3OOPData.pdb
 C:\Users\Mladen\source\repos\LabV3OOP\LabV3OOP\obj\Debug\LabV3OOP.csproj.CopyComplete
+C:\Users\Mladen\source\repos\LabV3OOP\LabV3OOP\obj\Debug\LabV3OOP.GameWonForm.resources

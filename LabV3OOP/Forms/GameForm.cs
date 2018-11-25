@@ -15,6 +15,9 @@ namespace LabV3OOP
     {
         private int _rows;
         private int _columns;
+        List<Label> _selected = new List<Label>(2);
+        List<Label> _matched = new List<Label>();
+        private int _arraySize;
 
         public GameForm(int r, int c)
         {
@@ -33,10 +36,11 @@ namespace LabV3OOP
             for (int i = 0; i < _rows; i++)
                 tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100 / _rows));
 
-            int asd = _columns * _rows;
+            int arraySize = _columns * _rows;
             if ((_columns * _rows) % 2 != 0)
-                asd--;
-            List<string> test = RandomArrayGenerator.generateArray(asd);
+                arraySize--;
+            _arraySize = arraySize;
+            List<string> test = RandomArrayGenerator.generateArray(arraySize);
 
             for(int i = 0; i < _rows * _columns; i++)
             {
@@ -60,15 +64,59 @@ namespace LabV3OOP
             var b = sender as Label;
             if (b != null)
             {
-                DoIt(b);
+                if (_selected.Count == 0)
+                {
+                    b.ForeColor = Color.Black;
+                    _selected.Add(b);
+                    DoIt();
+                }
+                else if (_selected.Count == 1)
+                {
+                    b.ForeColor = Color.Black;
+                    _selected.Add(b);
+                }
             }
         }
 
-        private async Task DoIt(Label b)
+        private async Task DoIt()
         {
-            b.ForeColor = Color.Black;
             await Task.Delay(1500);
-            b.ForeColor = Color.White;
+            if (CheckList())
+                SaveItems();
+            RemoveItems();
+        }
+
+        private void SaveItems()
+        {
+            for (int i = _selected.Count - 1; i >= 0; i--)
+            {
+                _selected[i].Click -= b_Click;
+                _matched.Add(_selected[i]);
+                _selected.RemoveAt(i);
+            }
+            if (_matched.Count == _arraySize)
+            {
+                GameWonForm gwf = new GameWonForm();
+                gwf.ShowDialog();
+            }
+        }
+
+        private void RemoveItems()
+        {
+            for(int i = _selected.Count - 1; i>=0; i--)
+            {
+                _selected[i].ForeColor = Color.White;
+                _selected.RemoveAt(i);
+            }
+        }
+
+        private bool CheckList()
+        {
+            if (_selected.Count == 2)
+                if (_selected[0].Text == _selected[1].Text)
+                    return true;
+            return false;
+            
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
