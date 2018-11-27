@@ -19,7 +19,7 @@ namespace LabV3OOP
 
         private void button1_Click(object sender, EventArgs e)
         {
-            GameForm gf = new GameForm(int.Parse(textBox1.Text),int.Parse(textBox2.Text));
+            GameForm gf = new GameForm(int.Parse(textBox1.Text), int.Parse(textBox2.Text),int.Parse(txtBoxPairs.Text)*2);
             gf.Show();
             this.Hide();
         }

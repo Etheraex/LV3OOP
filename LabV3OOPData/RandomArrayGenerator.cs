@@ -8,31 +8,44 @@ namespace LabV3OOPData
 {
     public class RandomArrayGenerator
     {
-        
-
-        public static List<string> generateArray(int count)
+        public List<string> generateArray(int count,int size)
         {
             Random random = new Random();
-
-            List<string> icons = new List<string>
-            {
-                "a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z",
-                "A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z",
-                "1","2","3","4","5","6","7","8","9","0"
-            };
-
+            List<string> icons = Images.LoadedImages.ImageNames;
             List<string> randomString = new List<string>();
+
             int rand;
-            for (int i = 0; i < count / 2; i++)
+            int tmp = count;
+            if (count > size)
+                tmp = size;
+            for (int i = 0; i < tmp / 2; i++)
             {
                 rand = random.Next(0, icons.Count);
                 randomString.Add(icons[rand]);
             }
-            List<string> tmp = randomString;
+            List<string> toDouble = randomString;
+            randomString.AddRange(toDouble);
+            for (int i = count; i < size; i++)
+                randomString.Add("empty");
 
-            randomString.AddRange(tmp);
+            List<string> asd = ShuffleList(randomString);
+            return asd;
+        }
 
-            return randomString;
+        private List<string> ShuffleList(List<string> inputList)
+        {
+            List<string> randomList = new List<string>();
+
+            Random r = new Random();
+            int randomIndex = 0;
+            while (inputList.Count > 0)
+            {
+                randomIndex = r.Next(0, inputList.Count); 
+                randomList.Add(inputList[randomIndex]); 
+                inputList.RemoveAt(randomIndex); 
+            }
+
+            return randomList; 
         }
     }
 }

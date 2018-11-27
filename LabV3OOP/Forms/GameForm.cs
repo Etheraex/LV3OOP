@@ -13,110 +13,65 @@ namespace LabV3OOP
 {
     public partial class GameForm : Form
     {
-        private int _rows;
-        private int _columns;
-        List<Label> _selected = new List<Label>(2);
-        List<Label> _matched = new List<Label>();
-        private int _arraySize;
+        Tile selected1 = null;
+        Tile selected2 = null;
 
-        public GameForm(int r, int c)
+        public GameForm(int rows,int columns, int pairs)
         {
             InitializeComponent();
-
-            _rows = r;
-            _columns = c;
-
-            tableLayoutPanel1.RowCount = _rows;
-            tableLayoutPanel1.ColumnCount = _columns;
-            tableLayoutPanel1.ColumnStyles.Clear();
-            tableLayoutPanel1.RowStyles.Clear();
-
-            for (int i = 0; i < _columns; i++)
-                tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100 / _columns));
-            for (int i = 0; i < _rows; i++)
-                tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 100 / _rows));
-
-            int arraySize = _columns * _rows;
-            if ((_columns * _rows) % 2 != 0)
-                arraySize--;
-            _arraySize = arraySize;
-            List<string> test = RandomArrayGenerator.generateArray(arraySize);
-
-            for(int i = 0; i < _rows * _columns; i++)
-            {
-                var b = new Label();
-                b.TextAlign = ContentAlignment.MiddleCenter;
-                b.Font = new Font("Webdings", 40);
-                if (i < test.Count)
-                    b.Text = test[i].ToString();
-                else
-                    b.Text = "";
-                b.Name = string.Format("b_{0}", i + 1);
-                b.Click += b_Click;
-                b.Dock = DockStyle.Fill;
-                b.ForeColor = Color.White;
-                this.tableLayoutPanel1.Controls.Add(b);
-            }
+            
+            Table.Controls.Clear();
+            Table.Controls.Add(PlayingField.PlayingFieldInstance.CreateTable(pairs, rows, columns, reaction));
         }
 
-        void b_Click(object sender, EventArgs e)
+        private void reaction(object sender, EventArgs e)
         {
-            var b = sender as Label;
+            var b = sender as Tile;
             if (b != null)
             {
-                if (_selected.Count == 0)
+                if ( selected2 != null )
+                    return;
+                b.swap();
+                if (b.Empty) { }
+                else if (selected1 == null)
                 {
-                    b.ForeColor = Color.Black;
-                    _selected.Add(b);
-                    DoIt();
+                    selected1 = b;
+                    selected1.RemoveAction();
                 }
-                else if (_selected.Count == 1)
+                else if (selected1 != null)
                 {
-                    b.ForeColor = Color.Black;
-                    _selected.Add(b);
+                    selected2 = b;
+                    CheckCards();
                 }
             }
+            GameWonCheck();
         }
 
-        private async Task DoIt()
+        private void CheckCards()
         {
-            await Task.Delay(1500);
-            if (CheckList())
-                SaveItems();
-            RemoveItems();
-        }
-
-        private void SaveItems()
-        {
-            for (int i = _selected.Count - 1; i >= 0; i--)
+            if (!selected2.IsEqual(selected1))
             {
-                _selected[i].Click -= b_Click;
-                _matched.Add(_selected[i]);
-                _selected.RemoveAt(i);
+                timer1 = new Timer();
+                timer1.Tick += Tick;
+                timer1.Interval = 700;
+                timer1.Start();
             }
-            if (_matched.Count == _arraySize)
+            else
+            {
+                selected1.Matched = true;
+                selected2.Matched = true;
+                selected2 = null;
+                selected1 = null;
+            }
+        }
+
+        private void GameWonCheck()
+        {
+            if (PlayingField.PlayingFieldInstance.AllMatched)
             {
                 GameWonForm gwf = new GameWonForm();
                 gwf.ShowDialog();
             }
-        }
-
-        private void RemoveItems()
-        {
-            for(int i = _selected.Count - 1; i>=0; i--)
-            {
-                _selected[i].ForeColor = Color.White;
-                _selected.RemoveAt(i);
-            }
-        }
-
-        private bool CheckList()
-        {
-            if (_selected.Count == 2)
-                if (_selected[0].Text == _selected[1].Text)
-                    return true;
-            return false;
-            
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
@@ -124,6 +79,15 @@ namespace LabV3OOP
             Application.Exit();
         }
 
+        private void Tick(object sender, EventArgs e)
+        {
+            selected1.SetAction();
+            selected1.swapBack();
+            selected2.swapBack();
+            selected1 = null;
+            selected2 = null;
+            timer1.Stop();
+        }
 
     }
 }
