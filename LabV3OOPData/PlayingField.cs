@@ -29,6 +29,12 @@ namespace LabV3OOPData
             }
         }
 
+        public void RevealAll()
+        {
+            foreach (Tile t in lista)
+                t.swap();
+        }
+
         public TableLayoutPanel CreateTable(int pairs, int rows, int columns, EventHandler e)
         {
             _pairs = pairs;

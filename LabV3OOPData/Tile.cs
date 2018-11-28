@@ -10,7 +10,7 @@ namespace LabV3OOPData
     public class Tile : PictureBox
     {
         private EventHandler _e;
-        private string _backgroundImage = @"C:\Users\Mladen\source\repos\LabV3OOP\LabV3OOP\bin\Debug\data\background.jpg";
+        private string _backgroundImage = "../../../data/background.jpg";
         private string _image;
         private bool _matched;
 
@@ -35,10 +35,7 @@ namespace LabV3OOPData
         public Tile(string x, EventHandler e)
         {
             if (x == "empty")
-            {
-                _matched = true;
                 _image = null;
-            }
             else
                 _image = x;
 
@@ -62,7 +59,10 @@ namespace LabV3OOPData
         {
             base.ImageLocation = _image;
             if (_image == null)
+            {
+                _matched = true;
                 RemoveAction();
+            }
         }
 
         public void swapBack()

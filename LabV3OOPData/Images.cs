@@ -10,7 +10,6 @@ namespace LabV3OOPData
     class Images
     {
         private List<string> _imageNames = new List<string>();
-        private string _backgroundFile;
 
         public List<string> ImageNames
         {
@@ -28,7 +27,7 @@ namespace LabV3OOPData
         public void LoadImages()
         {
             _imageNames.Clear();
-            foreach (string f in Directory.GetFiles("./data/", "*.png"))
+            foreach (string f in Directory.GetFiles("../../../data/", "*.png"))
             {
                 _imageNames.Add(f);
             }
@@ -44,6 +43,5 @@ namespace LabV3OOPData
                 return _loadedImages;
             }
         }
-
     }
 }

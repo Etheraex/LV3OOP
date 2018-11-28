@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,12 +17,12 @@ namespace LabV3OOP
         Tile selected1 = null;
         Tile selected2 = null;
 
-        public GameForm(int rows,int columns, int pairs)
+        public GameForm()
         {
             InitializeComponent();
-            
+            List<int> values = readFile();
             Table.Controls.Clear();
-            Table.Controls.Add(PlayingField.PlayingFieldInstance.CreateTable(pairs, rows, columns, reaction));
+            Table.Controls.Add(PlayingField.PlayingFieldInstance.CreateTable(values[2], values[0], values[1], reaction));
         }
 
         private void reaction(object sender, EventArgs e)
@@ -89,5 +90,40 @@ namespace LabV3OOP
             timer1.Stop();
         }
 
+        private List<int> readFile()
+        {
+            List<int> setValues = new List<int>(4);
+            using(StreamReader file = new StreamReader("../../../data/info.txt"))
+            {
+                setValues.Add(int.Parse(file.ReadLine()));
+                setValues.Add(int.Parse(file.ReadLine()));
+                setValues.Add(int.Parse(file.ReadLine()));
+                setValues.Add(int.Parse(file.ReadLine()));
+            }
+            return setValues;
+        }
+
+        private void btnNew_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
+        }
+
+        private void btnSettings_Click(object sender, EventArgs e)
+        {
+            SettingsForm sf = new SettingsForm();
+            DialogResult dr = sf.ShowDialog();
+            if (dr == DialogResult.OK)
+                Application.Restart();
+        }
+
+        private void btnShow_Click(object sender, EventArgs e)
+        {
+            PlayingField.PlayingFieldInstance.RevealAll();
+            DialogResult dr = MessageBox.Show("You lost","Game over",MessageBoxButtons.RetryCancel);
+            if (dr == DialogResult.Retry)
+                Application.Restart();
+            else if (dr == DialogResult.Cancel)
+                Application.Exit();
+        }
     }
 }
