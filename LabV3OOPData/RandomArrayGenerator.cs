@@ -8,7 +8,7 @@ namespace LabV3OOPData
 {
     public class RandomArrayGenerator
     {
-        public List<string> generateArray(int count,int size)
+        public List<string> generateArray(int count,int size, int imageCount)
         {
             Random random = new Random();
             List<string> icons = Images.LoadedImages.ImageNames;
@@ -22,14 +22,23 @@ namespace LabV3OOPData
             {
                 rand = random.Next(0, icons.Count);
                 randomString.Add(icons[rand]);
+                if(imageCount > 0)
+                {
+                    imageCount--;
+                    icons.RemoveAt(rand);
+                }
             }
-            List<string> toDouble = randomString;
-            randomString.AddRange(toDouble);
+            // List doubles itself 
+            // to provide a pair to every image
+            randomString.AddRange(randomString);
+
+            // Filling the rest of the list with "empty" tiles
             for (int i = count; i < size; i++)
                 randomString.Add("empty");
 
-            List<string> asd = ShuffleList(randomString);
-            return asd;
+            // Aditional shuffling to break up the empty elements
+            randomString = ShuffleList(randomString);
+            return randomString;
         }
 
         private List<string> ShuffleList(List<string> inputList)

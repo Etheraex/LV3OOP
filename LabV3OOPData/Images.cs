@@ -23,14 +23,12 @@ namespace LabV3OOPData
         {
             LoadImages();
         }
-
-        public void LoadImages()
+        
+        private void LoadImages()
         {
             _imageNames.Clear();
             foreach (string f in Directory.GetFiles("../../../data/", "*.png"))
-            {
                 _imageNames.Add(f);
-            }
         }
 
         private static Images _loadedImages;

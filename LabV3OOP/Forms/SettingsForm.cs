@@ -27,10 +27,10 @@ namespace LabV3OOP
         {
             using (StreamWriter file = new StreamWriter("../../../data/info.txt"))
             {
-                file.WriteLine(txtRedovi.Text);
-                file.WriteLine(txtKolone.Text);
-                file.WriteLine(txtParovi.Text);
-                file.WriteLine(txtSlike.Text);
+                file.WriteLine(txtRows.Text);
+                file.WriteLine(txtColumns.Text);
+                file.WriteLine(txtPairs.Text);
+                file.WriteLine(txtImageCount.Text);
             }
 
             DialogResult = DialogResult.OK;

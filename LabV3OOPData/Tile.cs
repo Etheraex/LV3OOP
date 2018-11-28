@@ -9,7 +9,7 @@ namespace LabV3OOPData
 {
     public class Tile : PictureBox
     {
-        private EventHandler _e;
+        private EventHandler _event;
         private string _backgroundImage = "../../../data/background.jpg";
         private string _image;
         private bool _matched;
@@ -32,27 +32,32 @@ namespace LabV3OOPData
             }
         }
 
-        public Tile(string x, EventHandler e)
+        public Tile(string x, EventHandler e, int cellHeight, int cellWidth)
         {
             if (x == "empty")
+            {
+                _matched = true;
                 _image = null;
+            }
             else
                 _image = x;
 
-            _e = e;
+            _event = e;
             SetAction();
             base.ImageLocation = _backgroundImage;
+            base.Width = cellWidth;
+            base.Height = cellHeight;
             base.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
         public void RemoveAction()
         {
-            base.Click -= _e;
+            base.Click -= _event;
         }
 
         public void SetAction()
         {
-            base.Click += _e;
+            base.Click += _event;
         }
 
         public void swap()

@@ -10,7 +10,7 @@ namespace LabV3OOPData
 {
     public class PlayingField
     {
-        List<Tile> lista = new List<Tile>();
+        List<Tile> tileList = new List<Tile>();
         int _pairs;
         int _rows;
         int _columns;
@@ -22,7 +22,7 @@ namespace LabV3OOPData
             get
             {
                 bool tmp = true;
-                foreach (Tile t in lista)
+                foreach (Tile t in tileList)
                     if (!t.Matched)
                         tmp = false;
                 return tmp;
@@ -31,30 +31,30 @@ namespace LabV3OOPData
 
         public void RevealAll()
         {
-            foreach (Tile t in lista)
+            foreach (Tile t in tileList)
                 t.swap();
         }
 
-        public TableLayoutPanel CreateTable(int pairs, int rows, int columns, EventHandler e)
+        public TableLayoutPanel CreateTable(int rows, int columns, int pairs,int imageCount, EventHandler e, int cellHeight, int cellWidth)
         {
             _pairs = pairs;
             _rows = rows;
             _columns = columns;
-            populateTileList(e);
+            populateTileList(e, cellHeight, cellWidth, imageCount);
             return createTable();
         }
 
         public List<Tile> returnList()
         {
-            return lista;
+            return tileList;
         }
 
-        private void populateTileList(EventHandler e)
+        private void populateTileList(EventHandler e, int cellHeight, int cellWidth, int imageCount)
         {
-            List<string> asd = new RandomArrayGenerator().generateArray(_pairs, _rows * _columns);
+            List<string> asd = new RandomArrayGenerator().generateArray(_pairs, _rows * _columns, imageCount);
             for(int i = 0; i < asd.Count; i++)
             {
-                lista.Add(new Tile(asd[i], e));
+                tileList.Add(new Tile(asd[i], e, cellHeight, cellWidth));
             }
         }
 
@@ -68,9 +68,9 @@ namespace LabV3OOPData
             for (int i = 0; i < _rows; i++)
                 table.RowStyles.Add(new RowStyle(SizeType.Percent, 100 / _rows));
 
-            for (int i = 0; i < lista.Count; i++)
+            for (int i = 0; i < tileList.Count; i++)
             {
-                table.Controls.Add(lista[i]);
+                table.Controls.Add(tileList[i]);
             }
 
             table.AutoSizeMode = AutoSizeMode.GrowAndShrink;
@@ -94,5 +94,13 @@ namespace LabV3OOPData
                 return _playingFieldInstance;
             }
         }
+
+        public void FlipEmpty()
+        {
+            foreach (Tile t in tileList)
+                if (t.Empty)
+                    t.swap();
+        }
+
     }
 }

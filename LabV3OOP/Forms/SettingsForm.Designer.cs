@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.txtSlike = new System.Windows.Forms.TextBox();
+            this.txtImageCount = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.txtRedovi = new System.Windows.Forms.TextBox();
-            this.txtKolone = new System.Windows.Forms.TextBox();
-            this.txtParovi = new System.Windows.Forms.TextBox();
+            this.txtRows = new System.Windows.Forms.TextBox();
+            this.txtColumns = new System.Windows.Forms.TextBox();
+            this.txtPairs = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -49,12 +49,12 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Redovi";
             // 
-            // txtSlike
+            // txtImageCount
             // 
-            this.txtSlike.Location = new System.Drawing.Point(113, 94);
-            this.txtSlike.Name = "txtSlike";
-            this.txtSlike.Size = new System.Drawing.Size(100, 20);
-            this.txtSlike.TabIndex = 1;
+            this.txtImageCount.Location = new System.Drawing.Point(113, 94);
+            this.txtImageCount.Name = "txtImageCount";
+            this.txtImageCount.Size = new System.Drawing.Size(100, 20);
+            this.txtImageCount.TabIndex = 1;
             // 
             // btnSave
             // 
@@ -76,26 +76,26 @@
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // txtRedovi
+            // txtRows
             // 
-            this.txtRedovi.Location = new System.Drawing.Point(113, 15);
-            this.txtRedovi.Name = "txtRedovi";
-            this.txtRedovi.Size = new System.Drawing.Size(100, 20);
-            this.txtRedovi.TabIndex = 1;
+            this.txtRows.Location = new System.Drawing.Point(113, 15);
+            this.txtRows.Name = "txtRows";
+            this.txtRows.Size = new System.Drawing.Size(100, 20);
+            this.txtRows.TabIndex = 1;
             // 
-            // txtKolone
+            // txtColumns
             // 
-            this.txtKolone.Location = new System.Drawing.Point(113, 41);
-            this.txtKolone.Name = "txtKolone";
-            this.txtKolone.Size = new System.Drawing.Size(100, 20);
-            this.txtKolone.TabIndex = 1;
+            this.txtColumns.Location = new System.Drawing.Point(113, 41);
+            this.txtColumns.Name = "txtColumns";
+            this.txtColumns.Size = new System.Drawing.Size(100, 20);
+            this.txtColumns.TabIndex = 1;
             // 
-            // txtParovi
+            // txtPairs
             // 
-            this.txtParovi.Location = new System.Drawing.Point(113, 67);
-            this.txtParovi.Name = "txtParovi";
-            this.txtParovi.Size = new System.Drawing.Size(100, 20);
-            this.txtParovi.TabIndex = 1;
+            this.txtPairs.Location = new System.Drawing.Point(113, 67);
+            this.txtPairs.Name = "txtPairs";
+            this.txtPairs.Size = new System.Drawing.Size(100, 20);
+            this.txtPairs.TabIndex = 1;
             // 
             // label2
             // 
@@ -120,9 +120,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(30, 97);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 13);
+            this.label4.Size = new System.Drawing.Size(49, 13);
             this.label4.TabIndex = 0;
-            this.label4.Text = "label1";
+            this.label4.Text = "Broj slika";
             // 
             // SettingsForm
             // 
@@ -131,10 +131,10 @@
             this.ClientSize = new System.Drawing.Size(256, 220);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.txtParovi);
-            this.Controls.Add(this.txtKolone);
-            this.Controls.Add(this.txtRedovi);
-            this.Controls.Add(this.txtSlike);
+            this.Controls.Add(this.txtPairs);
+            this.Controls.Add(this.txtColumns);
+            this.Controls.Add(this.txtRows);
+            this.Controls.Add(this.txtImageCount);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -149,12 +149,12 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtSlike;
+        private System.Windows.Forms.TextBox txtImageCount;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.TextBox txtRedovi;
-        private System.Windows.Forms.TextBox txtKolone;
-        private System.Windows.Forms.TextBox txtParovi;
+        private System.Windows.Forms.TextBox txtRows;
+        private System.Windows.Forms.TextBox txtColumns;
+        private System.Windows.Forms.TextBox txtPairs;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
