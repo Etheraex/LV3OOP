@@ -21,6 +21,8 @@ namespace LabV3OOP
         private int _cellWidth;
         private int seconds = 0;
         private int minutes = 0;
+        private int _time;
+        Tile hint = null;
         #endregion
 
         #region Init
@@ -37,8 +39,14 @@ namespace LabV3OOP
             int columns;
             int pairs;
             int imageCount;
-            readFile(out rows, out columns, out pairs, out imageCount);
-            Table.Controls.Add(PlayingField.PlayingFieldInstance.CreateTable(rows, columns, pairs * 2, imageCount, tile_reaction, _cellHeight, _cellWidth));
+            int time;
+            readFile(out rows, out columns, out pairs, out imageCount, out time);
+            _time = time;
+            TableLayoutPanel table = PlayingField.PlayingFieldInstance.CreateTable(rows, columns, pairs * 2, imageCount, tile_reaction, _cellHeight, _cellWidth);
+
+
+            Table.Controls.Add(table);
+            startHinting(table);
         }
         #endregion
 
@@ -50,7 +58,8 @@ namespace LabV3OOP
             int columns;
             int pairs;
             int images;
-            readFile(out rows, out columns, out pairs, out images);
+            int time;
+            readFile(out rows, out columns, out pairs, out images, out time);
             for (int i = 0; i < columns; i++)
                 Table.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100 / columns));
             for (int i = 0; i < rows; i++)
@@ -87,7 +96,7 @@ namespace LabV3OOP
             }
         }
 
-        private void readFile(out int rows,out int columns,out int pairs,out int images)
+        private void readFile(out int rows,out int columns,out int pairs,out int images, out int time)
         {
             using(StreamReader file = new StreamReader("../../../data/info.txt"))
             {
@@ -95,6 +104,7 @@ namespace LabV3OOP
                 columns = int.Parse(file.ReadLine());
                 pairs = int.Parse(file.ReadLine());
                 images = int.Parse(file.ReadLine());
+                time = int.Parse(file.ReadLine());
             }
         }
 
@@ -174,6 +184,36 @@ namespace LabV3OOP
             GameWonCheck();
         }
 
+        private async Task startHinting(TableLayoutPanel table)
+        {
+        //    timer3 = new Timer();
+        //    timer3.Interval = _time * 1000;
+        //    timer3.Tick += Tick3;
+
+            for (int i = 0; i < table.ColumnCount; i++)
+                for (int j = 0; j < table.RowCount; j++)
+                {
+                    hint = table.GetControlFromPosition(i, j) as Tile;
+                    if (hint != null)
+                    {
+                        if (hint.toHint())
+                        {
+                            hint.revealHint();
+                            await Task.Delay(_time * 1000);
+                            hint.hideHint();
+                        }
+                    }
+                }
+        }
+
         #endregion
+
+        //private void Tick3(object sender, EventArgs e)
+        //{
+        //    timer3.Stop();
+        //    hint.hideHint();
+        //}
     }
+
+    
 }

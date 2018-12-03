@@ -11,7 +11,7 @@ namespace LabV3OOPData
     {
         private EventHandler _event;
         private string _backgroundImage = "../../../data/background.jpg";
-        private string _image;
+        public string _image;
         private bool _matched;
 
         public bool Empty
@@ -81,5 +81,27 @@ namespace LabV3OOPData
                 return true;
             return false;
         }
+
+        public void revealHint()
+        {
+            if (base.ImageLocation != _backgroundImage)
+                return;
+            base.ImageLocation = _image;
+            this.RemoveAction();
+        }
+
+        public void hideHint()
+        {
+            base.ImageLocation = _backgroundImage;
+            this.SetAction();
+        }
+
+        public bool toHint()
+        {
+            if (base.ImageLocation == _backgroundImage)
+                return true;
+            return false;
+        }
+
     }
 }

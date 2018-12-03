@@ -13,3 +13,16 @@ C:\Users\Mladen\source\repos\LabV3OOP\LabV3OOP\bin\Debug\LabV3OOPData.pdb
 C:\Users\Mladen\source\repos\LabV3OOP\LabV3OOP\obj\Debug\LabV3OOP.csproj.CopyComplete
 C:\Users\Mladen\source\repos\LabV3OOP\LabV3OOP\obj\Debug\LabV3OOP.GameWonForm.resources
 C:\Users\Mladen\source\repos\LabV3OOP\LabV3OOP\obj\Debug\LabV3OOP.SettingsForm.resources
+F:\LV3OOP\LV3OOP\LabV3OOP\bin\Debug\LabV3OOP.exe.config
+F:\LV3OOP\LV3OOP\LabV3OOP\obj\Debug\LabV3OOP.exe
+F:\LV3OOP\LV3OOP\LabV3OOP\obj\Debug\LabV3OOP.pdb
+F:\LV3OOP\LV3OOP\LabV3OOP\bin\Debug\LabV3OOP.exe
+F:\LV3OOP\LV3OOP\LabV3OOP\bin\Debug\LabV3OOP.pdb
+F:\LV3OOP\LV3OOP\LabV3OOP\bin\Debug\LabV3OOPData.dll
+F:\LV3OOP\LV3OOP\LabV3OOP\bin\Debug\LabV3OOPData.pdb
+F:\LV3OOP\LV3OOP\LabV3OOP\obj\Debug\LabV3OOP.csprojResolveAssemblyReference.cache
+F:\LV3OOP\LV3OOP\LabV3OOP\obj\Debug\LabV3OOP.GameForm.resources
+F:\LV3OOP\LV3OOP\LabV3OOP\obj\Debug\LabV3OOP.GameWonForm.resources
+F:\LV3OOP\LV3OOP\LabV3OOP\obj\Debug\LabV3OOP.Properties.Resources.resources
+F:\LV3OOP\LV3OOP\LabV3OOP\obj\Debug\LabV3OOP.SettingsForm.resources
+F:\LV3OOP\LV3OOP\LabV3OOP\obj\Debug\LabV3OOP.csproj.GenerateResource.Cache

@@ -35,7 +35,7 @@ namespace LabV3OOPData
                 t.swap();
         }
 
-        public TableLayoutPanel CreateTable(int rows, int columns, int pairs,int imageCount, EventHandler e, int cellHeight, int cellWidth)
+        public TableLayoutPanel CreateTable(int rows, int columns, int pairs, int imageCount, EventHandler e, int cellHeight, int cellWidth)
         {
             _pairs = pairs;
             _rows = rows;
@@ -78,7 +78,7 @@ namespace LabV3OOPData
             table.Location = new Point(0, 36);
             table.AutoSize = true;
             table.Dock = DockStyle.Fill;
-            table.Anchor = (AnchorStyles.Bottom | AnchorStyles.Right |  AnchorStyles.Left | AnchorStyles.Top);
+            table.Anchor = (AnchorStyles.Bottom | AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Top);
             table.CellBorderStyle = TableLayoutPanelCellBorderStyle.InsetDouble;
 
             return table;

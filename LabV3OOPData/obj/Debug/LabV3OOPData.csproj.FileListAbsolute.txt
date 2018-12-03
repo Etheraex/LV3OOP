@@ -4,3 +4,8 @@ C:\Users\Mladen\source\repos\LabV3OOP\LabV3OOPData\obj\Debug\LabV3OOPData.csproj
 C:\Users\Mladen\source\repos\LabV3OOP\LabV3OOPData\obj\Debug\LabV3OOPData.csproj.CoreCompileInputs.cache
 C:\Users\Mladen\source\repos\LabV3OOP\LabV3OOPData\obj\Debug\LabV3OOPData.dll
 C:\Users\Mladen\source\repos\LabV3OOP\LabV3OOPData\obj\Debug\LabV3OOPData.pdb
+F:\LV3OOP\LV3OOP\LabV3OOPData\bin\Debug\LabV3OOPData.dll
+F:\LV3OOP\LV3OOP\LabV3OOPData\bin\Debug\LabV3OOPData.pdb
+F:\LV3OOP\LV3OOP\LabV3OOPData\obj\Debug\LabV3OOPData.csprojResolveAssemblyReference.cache
+F:\LV3OOP\LV3OOP\LabV3OOPData\obj\Debug\LabV3OOPData.dll
+F:\LV3OOP\LV3OOP\LabV3OOPData\obj\Debug\LabV3OOPData.pdb

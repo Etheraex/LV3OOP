@@ -34,9 +34,9 @@
             this.btnShow = new System.Windows.Forms.Button();
             this.btnNew = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.label1 = new System.Windows.Forms.Label();
             this.lblTimer = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -99,6 +99,14 @@
             this.panel1.Size = new System.Drawing.Size(850, 47);
             this.panel1.TabIndex = 5;
             // 
+            // lblTimer
+            // 
+            this.lblTimer.AutoSize = true;
+            this.lblTimer.Location = new System.Drawing.Point(779, 17);
+            this.lblTimer.Name = "lblTimer";
+            this.lblTimer.Size = new System.Drawing.Size(0, 13);
+            this.lblTimer.TabIndex = 4;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -107,14 +115,6 @@
             this.label1.Size = new System.Drawing.Size(60, 13);
             this.label1.TabIndex = 4;
             this.label1.Text = "Game time:";
-            // 
-            // lblTimer
-            // 
-            this.lblTimer.AutoSize = true;
-            this.lblTimer.Location = new System.Drawing.Point(779, 17);
-            this.lblTimer.Name = "lblTimer";
-            this.lblTimer.Size = new System.Drawing.Size(0, 13);
-            this.lblTimer.TabIndex = 4;
             // 
             // GameForm
             // 

@@ -31,6 +31,7 @@ namespace LabV3OOP
                 file.WriteLine(txtColumns.Text);
                 file.WriteLine(txtPairs.Text);
                 file.WriteLine(txtImageCount.Text);
+                file.WriteLine(txtBoxVremeOtvaranja.Text);
             }
 
             DialogResult = DialogResult.OK;

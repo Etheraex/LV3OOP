@@ -23,3 +23,5 @@ namespace LabV3OOP
         }
     }
 }
+
+//otvaranje polja na svaku sekundu po kolonama
